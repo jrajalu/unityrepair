@@ -1,0 +1,19 @@
+{
+  "name": "unityrepair-master",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jrajalu/unityrepair",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Jamaludin Rajalu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
