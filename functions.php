@@ -23,12 +23,6 @@ add_action( 'after_setup_theme', 'unityrepair_setup' );
     
     load_theme_textdomain( 'unityrepair', get_template_directory() . '/lang' );
 
-    register_nav_menus( array(
-      'top'       => __( 'Top Navigation', 'unityrepair' ),
-      'main'      => __( 'Main Navigation', 'unityrepair' ),
-      'footer'    => __( 'Footer Navigation', 'unityrepair' ),
-    ) );
-
     add_theme_support( 'custom-header', array(
       'width'         => 399.953,
       'height'        => 100,
@@ -39,7 +33,11 @@ add_action( 'after_setup_theme', 'unityrepair_setup' );
     );
 
     add_filter( 'show_admin_bar', '__return_false' );
-
+    
+    register_nav_menus( array(
+      'main-navigation'   => __( 'Main Navigation', 'unityrepair' ),
+    ) );
+    
   }
 
 add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
@@ -64,3 +62,47 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_style( 'style', get_stylesheet_uri(), false, '8.0' );
   }
 
+add_action( 'after_setup_theme', 'unityrepair_files' );
+  if (!function_exists( 'unityrepair_files' )) {
+    function unityrepair_files() {
+      require( get_template_directory() . '/inc/theme-navigation.php' );
+    }
+  }
+  
+  
+add_action( 'widgets_init', 'unityrepair_widgets_init' );
+  if (!function_exists('unityrepair_widgets_init')) {
+    function unityrepair_widgets_init() {
+
+      register_sidebar( array(
+        'name'            => __( 'Page Sidebar', 'unityrepair' ),
+        'id'              => 'sidebar-1',
+        'description'     => __( 'Appears when using the optional page', 'unityrepair' ),
+        'before_widget'   => '<aside>',
+        'after_widget'    => '</aside>',
+        'before_title'    => '<h3 class="widget-title">',
+        'after_title'     => '</h3>',
+      ) );
+
+      register_sidebar( array(
+        'name'            => __( 'Frontpage: Two Column Left', 'unityrepair' ),
+        'id'              => 'sidebar-2',
+        'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
+        'before_widget'   => '<aside class="col-6-12">',
+        'after_widget'    => '</aside>',
+        'before_title'    => '<h3 class="widget-title">',
+        'after_title'     => '</h3>',
+      ) );
+
+      register_sidebar( array(
+        'name'            => __( 'Frontpage: One Column Right', 'unityrepair' ), 
+        'id'              => 'sidebar-3',
+        'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
+        'before_widget'   => '<aside class="col-12-12">',
+        'after_widget'    => '</aside>',
+        'before_title'    => '<h3 class="widget-title">',
+        'after_title'     => '</h3>',
+      ) );
+
+      }
+    }

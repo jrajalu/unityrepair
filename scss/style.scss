@@ -1,2 +1,12 @@
 @import "grid";
 @import "wordpress";
+@import "navigation";
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  background: #2d2d2f;
+}

@@ -15,3 +15,19 @@
 <?php get_template_part( 'inc/theme', 'css' ); ?>
 </head>
 <body <?php body_class(); ?>>
+<div class="top-wrapper">
+  <div class="wrap column">
+    <div class="col-4-12">
+      <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+    </div>
+    <div class="col-8-12">
+      <?php 
+        wp_nav_menu(array(
+          'menu' => 'Main Navigation', 
+          'container_id' => 'cssmenu', 
+          'walker' => new CSS_Menu_Maker_Walker()
+        )); 
+      ?>
+    </div>
+  </div>
+</div>
