@@ -15,5 +15,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "uikit": "~2.22.0",
+    "fitvids": "~1.1.0",
+    "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#~2.4.2",
+    "CMB2": "https://github.com/WebDevStudios/CMB2.git#~2.1.0"
+  }
 }

@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // grunt-contrib-less
+    // grunt-contrib-sass
 
     sass: {
       dist: { 
@@ -92,8 +92,8 @@ module.exports = function(grunt) {
         options: {
           position: 'top',
           banner: '/*\n'+
-                  'Theme Name: Malay Civilization\n'+
-                  'Theme URI: https://github.com/jrajalu/malaycivilization\n'+
+                  'Theme Name: Unity Repair\n'+
+                  'Theme URI: https://github.com/jrajalu/unityrepair\n'+
                   'Version: <%= pkg.version %>\n'+
                   'Description: <%= pkg.description %>\n'+
                   'Author: <%= pkg.author %>\n'+

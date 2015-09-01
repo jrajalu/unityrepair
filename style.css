@@ -1,10 +1,242 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Theme Name: Unity Repair
+Theme URI: https://github.com/jrajalu/unityrepair
+Version: 1.0.0
+Description: 
+Author: Jamaludin Rajalu
 */
-/* 
-    Created on : Aug 29, 2015, 8:15:13 AM
-    Author     : jrajalu
-*/
+[class*="col-"] {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
 
+.column {
+  width: 99.99%;
+  box-sizing: border-box;
+}
+
+.column:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col-1-12 {
+  width: 8.3325%;
+}
+
+.col-2-12 {
+  width: 16.665%;
+}
+
+.col-3-12 {
+  width: 24.9975%;
+}
+
+.col-4-12 {
+  width: 33.33%;
+}
+
+.col-5-12 {
+  width: 41.6625%;
+}
+
+.col-6-12 {
+  width: 49.995%;
+}
+
+.col-7-12 {
+  width: 58.3275%;
+}
+
+.col-8-12 {
+  width: 66.66%;
+}
+
+.col-9-12 {
+  width: 74.9925%;
+}
+
+.col-10-12 {
+  width: 83.325%;
+}
+
+.col-11-12 {
+  width: 91.6575%;
+}
+
+.col-12-12 {
+  width: 99.99%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  [class*="col-"] {
+    width: 99.99%;
+    display: block;
+    float: none;
+  }
+
+  .column-sm {
+    padding: 10px;
+  }
+}
+[class*="sm-col-"] {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+
+.sm-col-1-12 {
+  width: 8.3325%;
+}
+
+.sm-col-2-12 {
+  width: 16.665%;
+}
+
+.sm-col-3-12 {
+  width: 24.9975%;
+}
+
+.sm-col-4-12 {
+  width: 33.33%;
+}
+
+.sm-col-5-12 {
+  width: 41.6625%;
+}
+
+.sm-col-6-12 {
+  width: 49.995%;
+}
+
+.sm-col-7-12 {
+  width: 58.3275%;
+}
+
+.sm-col-8-12 {
+  width: 66.66%;
+}
+
+.sm-col-9-12 {
+  width: 74.9925%;
+}
+
+.sm-col-10-12 {
+  width: 83.325%;
+}
+
+.sm-col-11-12 {
+  width: 91.6575%;
+}
+
+.sm-col-12-12 {
+  width: 99.99%;
+}
+
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/*# sourceMappingURL=style.css.map */
