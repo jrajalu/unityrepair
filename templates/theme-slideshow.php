@@ -8,26 +8,19 @@
   <ul class="uk-slideshow">
     <?php
       $args = array(
-        'post_type'       => 'slideshow',
+        'post_type'       => 'slide',
         'post_per_page'   => 10,
         'order'           => 'ASC'
       );
 
-      $slideshow = new WP_Query( $args );
+      $loop = new WP_Query( $args );
 
-      if ( $slideshow->have_posts() ) : while ( $slideshow->have_posts() ) : $slideshow->the_post(); 
+      if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); 
     ?>
     <li>
-      <a href="<?php echo get_post_meta(get_the_ID(),'ut_slideshow_link',true); ?>">
-        <img src="<?php echo get_post_meta(get_the_ID(),'ut_slideshow_image',true); ?>" alt="<?php the_title(); ?>" style="width: 100%;">
+      <a href="<?php echo get_post_meta(get_the_ID(),'_unityrepair_slide_link',true); ?>">
+        <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_slide_image',true); ?>" alt="<?php the_title(); ?>" style="width: 100%;">
       </a>
-      <div class="uk-overlay-panel uk-overlay-bottom uk-overlay-fade">
-      <?php $hide_caption = get_post_meta(get_the_ID(), 'ut_slideshow_caption_hide', true); ?>
-        <div class="wrap slideshow <?php if ( $hide_caption== on ) { echo 'hidden'; } ?>">
-          <h2><?php the_title(); ?></h2>
-          <p><?php echo get_post_meta(get_the_ID(),'ut_slideshow_caption',true); ?></p>
-        </div>
-      </div>
     </li>            
     <?php endwhile; else: ?>
     <li>

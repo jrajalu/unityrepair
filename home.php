@@ -20,6 +20,9 @@ get_header(); ?>
     </div>
   </div>
   <div class="col-4-12">
+    <div class="arrow-box">
+      Sed cursus turpis vitae tortor. In hac habitasse platea dictumst. Suspendisse non nisl sit amet velit hendrerit rutrum. Donec id justo. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
+    </div>
     <?php if (dynamic_sidebar( 'sidebar-3' )) : else : endif; ?>
   </div>
 </div>

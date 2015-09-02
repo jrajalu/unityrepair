@@ -13,7 +13,16 @@
 
 ?>
 <div class="column">
-  <div class="col-9-12"></div>
+  <div class="col-3-12">
+    <?php
+      if ( has_post_thumbnail() ) {
+        the_post_thumbnail();
+      }
+      else {
+        echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/project.png" />';
+      }
+    ?>
+  </div>
   <div class="col-9-12">
     <h3><?php the_title(); ?></h3>
     <?php the_excerpt(); ?>

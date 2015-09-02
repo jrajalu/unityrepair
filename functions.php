@@ -63,11 +63,13 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
   }
 
 add_action( 'after_setup_theme', 'unityrepair_files' );
-  if (!function_exists( 'unityrepair_files' )) {
-    function unityrepair_files() {
-      require( get_template_directory() . '/inc/theme-cpt.php' );
-      require( get_template_directory() . '/inc/theme-navigation.php' );
-    }
+
+  function unityrepair_files() {
+    
+    require( get_template_directory() . '/inc/theme-cpt.php' );
+    require( get_template_directory() . '/inc/theme-metabox.php' );
+    require( get_template_directory() . '/inc/theme-navigation.php' );
+    
   }
   
   
