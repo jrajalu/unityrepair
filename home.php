@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 
-<div class="wrap">
+<div class="wrap slide-wrap">
   <?php get_template_part( 'templates/theme', 'slideshow' ); ?>
 </div>
 <div class="wrap column">
@@ -14,7 +14,9 @@ get_header(); ?>
       <?php if (dynamic_sidebar( 'sidebar-2' )) : else : endif; ?>
     </div>
     <div class="column">
-      lorem
+      <div class="col-12-12">
+        <?php get_template_part( 'templates/theme', 'project' ); ?>
+      </div>
     </div>
   </div>
   <div class="col-4-12">

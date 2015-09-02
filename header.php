@@ -15,8 +15,8 @@
 <?php get_template_part( 'inc/theme', 'css' ); ?>
 </head>
 <body <?php body_class(); ?>>
-<div class="top-wrapper">
-  <div class="wrap column">
+<div class="header-wrap">
+  <header class="wrap column">
     <div class="col-4-12">
       <img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
     </div>
@@ -29,5 +29,5 @@
         )); 
       ?>
     </div>
-  </div>
+  </header>
 </div>

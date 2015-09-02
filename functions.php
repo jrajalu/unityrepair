@@ -24,8 +24,8 @@ add_action( 'after_setup_theme', 'unityrepair_setup' );
     load_theme_textdomain( 'unityrepair', get_template_directory() . '/lang' );
 
     add_theme_support( 'custom-header', array(
-      'width'         => 399.953,
-      'height'        => 100,
+      'width'         => 319.953,
+      'height'        => 90,
       'default-image' => get_template_directory_uri() . '/images/logo.png',
       'uploads'       => true,
       'header-text'   => false,
@@ -65,6 +65,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
 add_action( 'after_setup_theme', 'unityrepair_files' );
   if (!function_exists( 'unityrepair_files' )) {
     function unityrepair_files() {
+      require( get_template_directory() . '/inc/theme-cpt.php' );
       require( get_template_directory() . '/inc/theme-navigation.php' );
     }
   }
@@ -88,7 +89,7 @@ add_action( 'widgets_init', 'unityrepair_widgets_init' );
         'name'            => __( 'Frontpage: Two Column Left', 'unityrepair' ),
         'id'              => 'sidebar-2',
         'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
-        'before_widget'   => '<aside class="col-6-12">',
+        'before_widget'   => '<aside class="col-6-12 widget">',
         'after_widget'    => '</aside>',
         'before_title'    => '<h3 class="widget-title">',
         'after_title'     => '</h3>',
