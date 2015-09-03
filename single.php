@@ -1,25 +1,20 @@
- <?php
+<?php
 /**
  * @package unityrepair
- * @author Jamaludin Rajalu
+ * @since 1.0
  */
-
 get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-
-          get_template_part( 'content', get_post_format() );
-
-		// End the loop.
-		endwhile;
-		?>
-
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
-
+<div class="wrap column pad-top pad-bottom">
+  <div id="primary" class="content-area col-8-12">
+    <div id="content" class="site-content pad-right" role="main">
+      <?php while( have_posts() ) : the_post(); ?>
+      <h1><?php the_title(); ?></h1>
+      <?php the_content(); ?>
+      <?php endwhile; ?>
+    </div>
+  </div>
+  <div class="col-4-12 pad-left">
+    <?php get_sidebar(); ?>
+  </div>
+</div>
 <?php get_footer(); ?>
