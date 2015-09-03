@@ -1,7 +1,10 @@
-<div class="column">
-    <div class="col-9-12"></div>
-    <div class="col-3-12"></div>
-</div>
+<footer>
+  <div class="wrap column">
+    <div class="col-12-12">
+      <p class="copyright">Copyright &copy; <?php bloginfo( 'name' ); ?> <?php echo date( 'Y' ); ?></p>
+    </div>
+  </div>
+</footer>
 <?php wp_footer(); ?>
 </body>
 </html>

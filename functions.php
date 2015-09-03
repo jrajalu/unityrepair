@@ -26,7 +26,7 @@ add_action( 'after_setup_theme', 'unityrepair_setup' );
     add_theme_support( 'custom-header', array(
       'width'         => 319.953,
       'height'        => 90,
-      'default-image' => get_template_directory_uri() . '/images/logo.png',
+      'default-image' => get_template_directory_uri() . '/images/logo.svg',
       'uploads'       => true,
       'header-text'   => false,
       )
@@ -101,7 +101,7 @@ add_action( 'widgets_init', 'unityrepair_widgets_init' );
         'name'            => __( 'Frontpage: One Column Right', 'unityrepair' ), 
         'id'              => 'sidebar-3',
         'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
-        'before_widget'   => '<aside class="col-12-12">',
+        'before_widget'   => '<aside class="arrow-box">',
         'after_widget'    => '</aside>',
         'before_title'    => '<h3 class="widget-title">',
         'after_title'     => '</h3>',
