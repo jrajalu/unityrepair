@@ -13,7 +13,7 @@
 
 ?>
 <div class="column">
-  <div class="col-3-12">
+  <div class="col-3-12 pad-right">
     <?php
       if ( has_post_thumbnail() ) {
         the_post_thumbnail();
@@ -23,11 +23,10 @@
       }
     ?>
   </div>
-  <div class="col-9-12">
+  <div class="col-9-12 pad-left">
     <h3><?php the_title(); ?></h3>
     <?php the_excerpt(); ?>
   </div>
 </div>
-
-
+<hr>
 <?php endwhile; ?>

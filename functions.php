@@ -70,6 +70,12 @@ add_action( 'after_setup_theme', 'unityrepair_files' );
     require( get_template_directory() . '/inc/theme-metabox.php' );
     require( get_template_directory() . '/inc/theme-navigation.php' );
     
+    require( get_template_directory() . '/inc/theme-update.php' );
+      new ThemeUpdateChecker(
+        'unityrepair',
+        'https://raw.githubusercontent.com/jrajalu/unityrepair/master/version.json'
+      );
+     
   }
   
   
@@ -109,3 +115,4 @@ add_action( 'widgets_init', 'unityrepair_widgets_init' );
 
       }
     }
+    

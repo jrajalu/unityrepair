@@ -1,3 +1,4 @@
+</div>
 <footer>
   <div class="wrap column">
     <div class="col-12-12">
