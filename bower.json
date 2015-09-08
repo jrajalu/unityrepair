@@ -1,6 +1,6 @@
 {
   "name": "unityrepair-master",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "homepage": "https://github.com/jrajalu/unityrepair",
   "moduleType": [
     "node"
@@ -17,9 +17,10 @@
     "tests"
   ],
   "devDependencies": {
-    "uikit": "~2.22.0",
+    "CMB2": "https://github.com/WebDevStudios/CMB2.git#~2.1.0",
     "fitvids": "~1.1.0",
+    "flexslider": "~2.5.0",
     "TGM-Plugin-Activation": "https://github.com/TGMPA/TGM-Plugin-Activation.git#~2.4.2",
-    "CMB2": "https://github.com/WebDevStudios/CMB2.git#~2.1.0"
+    "uikit": "~2.22.0"
   }
 }

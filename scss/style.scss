@@ -30,6 +30,8 @@
 .header-wrap {
   background: #2d2d2f;
   height: 90px;
+  position: relative;
+  z-index: 5;
 }
 
 .slide-wrap {
@@ -125,4 +127,30 @@ footer {
     text-align: center;
     color: #fff;
   }
+}
+
+// flexslider2 tweak
+.flexslider {
+  margin: 0;
+}
+
+.flexslider .slides li {
+  position:relative;
+}
+
+.flex-caption {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0, 0, 0,0.6);
+  z-index:1;
+  padding:10px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+ }
+
+.flex-direction-nav a  {
+  line-height: 40px;
 }

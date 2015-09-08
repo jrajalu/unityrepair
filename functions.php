@@ -4,6 +4,15 @@
  * @since 1.0
  */
 
+add_action( 'login_head', 'add_favicon' );
+add_action( 'admin_head', 'add_favicon' );
+add_action( 'wp_head', 'add_favicon' );
+
+  function add_favicon() {
+    $favicon = get_stylesheet_directory_uri() . '/favicon.ico';
+    echo '<link rel="shortcut icon" href="' . $favicon . '" />';
+  }
+
 add_action( 'after_setup_theme', 'unityrepair_setup' );
 
   function unityrepair_setup() {
@@ -52,6 +61,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_script( 'uikit-lightbox', get_template_directory_uri() . '/lib/uikit/js/components/lightbox.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-search', get_template_directory_uri() . '/lib/uikit/js/components/search.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'fitvidsjs', get_template_directory_uri() . '/lib/fitvids/jquery.fitvids.js', array(), '1.1.0', true );
+    wp_enqueue_script( 'flexslier', get_template_directory_uri() . '/lib/flexslider/jquery.flexslider-min.js', array(), '2.5.0', true );
     wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/scripts.min.js', array(), '6.7', true );
     // stylesheet
     wp_enqueue_style( 'uikit', get_template_directory_uri() . '/lib/uikit/css/uikit.almost-flat.min.css', false, '2.20.3' );
@@ -59,6 +69,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_style( 'uikit-slideshow', get_template_directory_uri() . '/lib/uikit/css/components/slideshow.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-slidenav', get_template_directory_uri() . '/lib/uikit/css/components/slidenav.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-search', get_template_directory_uri() . '/lib/uikit/css/components/search.almost-flat.min.css', false, '2.20.3' );
+    wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/lib/flexslider/flexslider.css', false, '2.5.0' );
     wp_enqueue_style( 'style', get_stylesheet_uri(), false, '8.0' );
   }
 
@@ -72,7 +83,7 @@ add_action( 'after_setup_theme', 'unityrepair_files' );
     
     require( get_template_directory() . '/inc/theme-update.php' );
       new ThemeUpdateChecker(
-        'unityrepair',
+        'unityrepair-master',
         'https://raw.githubusercontent.com/jrajalu/unityrepair/master/version.json'
       );
      
