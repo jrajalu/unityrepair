@@ -32,6 +32,13 @@
       slideshow: false,
       sync: "#carousel"
     });
+    
+    $('#front').flexslider({
+      animation: "slide",
+      animationLoop: false,
+      itemWidth: 210,
+      itemMargin: 5
+    });
   
   });
 

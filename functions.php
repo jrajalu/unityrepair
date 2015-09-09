@@ -108,7 +108,7 @@ add_action( 'widgets_init', 'unityrepair_widgets_init' );
         'name'            => __( 'Frontpage: Two Column Left', 'unityrepair' ),
         'id'              => 'sidebar-2',
         'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
-        'before_widget'   => '<aside class="col-6-12 widget">',
+        'before_widget'   => '<aside class="col-6-12 widget front-widget">',
         'after_widget'    => '</aside>',
         'before_title'    => '<h3 class="widget-title">',
         'after_title'     => '</h3>',
