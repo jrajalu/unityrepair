@@ -12,8 +12,8 @@ get_header(); ?>
       <div id="slider" class="flexslider">
         <ul class="slides">
           <?php while( have_posts() ) : the_post(); ?>
-            <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
-              <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>" />
+            <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">
+              <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>" />
               <p class="flex-caption"><?php the_title(); ?></p>
             </li>
           <?php endwhile; ?>
@@ -23,8 +23,8 @@ get_header(); ?>
       <div id="carousel" class="flexslider">
         <ul class="slides">
           <?php while( have_posts() ) : the_post(); ?>
-            <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
-              <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>" />
+            <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">
+              <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>" />
             </li>
           <?php endwhile; ?>
         </ul>
