@@ -103,42 +103,88 @@ add_action( 'init', 'register_cpt_service' );
 
 function register_cpt_service() {
 
-    $labels = array( 
-        'name' => _x( 'Services', 'service' ),
-        'singular_name' => _x( 'Service', 'service' ),
-        'add_new' => _x( 'Add New', 'service' ),
-        'add_new_item' => _x( 'Add New Service', 'service' ),
-        'edit_item' => _x( 'Edit Service', 'service' ),
-        'new_item' => _x( 'New Service', 'service' ),
-        'view_item' => _x( 'View Service', 'service' ),
-        'search_items' => _x( 'Search Services', 'service' ),
-        'not_found' => _x( 'No services found', 'service' ),
-        'not_found_in_trash' => _x( 'No services found in Trash', 'service' ),
-        'parent_item_colon' => _x( 'Parent Service:', 'service' ),
-        'menu_name' => _x( 'Services', 'service' ),
-    );
+  $labels = array( 
+    'name' => _x( 'Services', 'service' ),
+    'singular_name' => _x( 'Service', 'service' ),
+    'add_new' => _x( 'Add New', 'service' ),
+    'add_new_item' => _x( 'Add New Service', 'service' ),
+    'edit_item' => _x( 'Edit Service', 'service' ),
+    'new_item' => _x( 'New Service', 'service' ),
+    'view_item' => _x( 'View Service', 'service' ),
+    'search_items' => _x( 'Search Services', 'service' ),
+    'not_found' => _x( 'No services found', 'service' ),
+    'not_found_in_trash' => _x( 'No services found in Trash', 'service' ),
+    'parent_item_colon' => _x( 'Parent Service:', 'service' ),
+    'menu_name' => _x( 'Services', 'service' ),
+  );
 
-    $args = array( 
-        'labels' => $labels,
-        'hierarchical' => true,
-        
-        'supports' => array( 'title', 'editor', 'thumbnail' ),
-        
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 5,
-        
-        'menu_icon' => 'dashicons-forms',
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
-    );
+  $args = array( 
+    'labels' => $labels,
+    'hierarchical' => true,
+
+    'supports' => array( 'title', 'editor', 'thumbnail' ),
+
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+
+    'menu_icon' => 'dashicons-forms',
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => true,
+    'capability_type' => 'post'
+  );
     
     register_post_type( 'service', $args );
+}
+
+// MANAGEMENTS
+
+add_action( 'init', 'register_cpt_management' );
+
+function register_cpt_management() {
+
+  $labels = array( 
+    'name' => _x( 'Managements', 'management' ),
+    'singular_name' => _x( 'Management', 'management' ),
+    'add_new' => _x( 'Add New', 'management' ),
+    'add_new_item' => _x( 'Add New Management', 'management' ),
+    'edit_item' => _x( 'Edit Management', 'management' ),
+    'new_item' => _x( 'New Management', 'management' ),
+    'view_item' => _x( 'View Management', 'management' ),
+    'search_items' => _x( 'Search Managements', 'management' ),
+    'not_found' => _x( 'No managements found', 'management' ),
+    'not_found_in_trash' => _x( 'No managements found in Trash', 'management' ),
+    'parent_item_colon' => _x( 'Parent Management:', 'management' ),
+    'menu_name' => _x( 'Managements', 'management' ),
+  );
+
+  $args = array( 
+    'labels' => $labels,
+    'hierarchical' => true,
+
+    'supports' => array( 'title', 'editor' ),
+
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-businessman',
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => true,
+    'capability_type' => 'post'
+  );
+
+  register_post_type( 'management', $args );
+  
 }

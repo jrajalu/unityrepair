@@ -7,7 +7,7 @@ get_header(); ?>
 <div class="wrap column pad-top pad-bottom">
   <div id="primary" class="content-area col-12-12">
     <div id="content" class="site-content pad-right" role="main">
-      <h1><?php _e( 'Projects', 'unityrepair' ); ?></h1>
+      <h1><?php _e( 'Services', 'unityrepair' ); ?></h1>
       <!-- slider -->
       <div id="slider" class="flexslider">
         <ul class="slides">

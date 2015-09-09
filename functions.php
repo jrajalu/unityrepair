@@ -86,44 +86,60 @@ add_action( 'after_setup_theme', 'unityrepair_files' );
         'unityrepair-master',
         'https://raw.githubusercontent.com/jrajalu/unityrepair/master/version.json'
       );
+      
+    require( get_template_directory() . '/inc/theme-login.php' );
+    
+    require( get_template_directory() . '/inc/widget-follow-us.php' );
      
   }
-  
+
+// WIDGETS
   
 add_action( 'widgets_init', 'unityrepair_widgets_init' );
-  if (!function_exists('unityrepair_widgets_init')) {
-    function unityrepair_widgets_init() {
 
-      register_sidebar( array(
-        'name'            => __( 'Page Sidebar', 'unityrepair' ),
-        'id'              => 'sidebar-1',
-        'description'     => __( 'Appears when using the optional page', 'unityrepair' ),
-        'before_widget'   => '<aside>',
-        'after_widget'    => '</aside>',
-        'before_title'    => '<h3 class="widget-title">',
-        'after_title'     => '</h3>',
-      ) );
+  function unityrepair_widgets_init() {
 
-      register_sidebar( array(
-        'name'            => __( 'Frontpage: Two Column Left', 'unityrepair' ),
-        'id'              => 'sidebar-2',
-        'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
-        'before_widget'   => '<aside class="col-6-12 widget front-widget">',
-        'after_widget'    => '</aside>',
-        'before_title'    => '<h3 class="widget-title">',
-        'after_title'     => '</h3>',
-      ) );
+    register_sidebar( array(
+      'name'            => __( 'Page Sidebar', 'unityrepair' ),
+      'id'              => 'sidebar-1',
+      'description'     => __( 'Appears when using the optional page', 'unityrepair' ),
+      'before_widget'   => '<aside>',
+      'after_widget'    => '</aside>',
+      'before_title'    => '<h3 class="widget-title">',
+      'after_title'     => '</h3>',
+    ) );
 
-      register_sidebar( array(
-        'name'            => __( 'Frontpage: One Column Right', 'unityrepair' ), 
-        'id'              => 'sidebar-3',
-        'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
-        'before_widget'   => '<aside class="arrow-box">',
-        'after_widget'    => '</aside>',
-        'before_title'    => '<h3 class="widget-title">',
-        'after_title'     => '</h3>',
-      ) );
+    register_sidebar( array(
+      'name'            => __( 'Frontpage: Two Column Left', 'unityrepair' ),
+      'id'              => 'sidebar-2',
+      'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
+      'before_widget'   => '<aside class="col-6-12 widget front-widget">',
+      'after_widget'    => '</aside>',
+      'before_title'    => '<h3 class="widget-title">',
+      'after_title'     => '</h3>',
+    ) );
 
-      }
-    }
-    
+    register_sidebar( array(
+      'name'            => __( 'Frontpage: One Column Right', 'unityrepair' ), 
+      'id'              => 'sidebar-3',
+      'description'     => __( 'Appears when using the optional Front Page', 'unityrepair' ),
+      'before_widget'   => '<aside class="arrow-box">',
+      'after_widget'    => '</aside>',
+      'before_title'    => '<h3 class="widget-title">',
+      'after_title'     => '</h3>',
+    ) );
+
+  }
+
+// SEARCH
+
+add_filter( 'get_search_form', 'unityrepair_search_form' );
+
+  function unityrepair_search_form( $form ) {
+    $form = '<form role="search" method="get" class="uk-form" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+    <input type="search" class="search-field" placeholder="' . esc_attr__( 'Search...', 'unityrepair' ) . '" value="' . get_search_query() . '" name="s" id="s" />
+    <button class="search-submit uk-button" id="searchsubmit">'. esc_attr__( 'Search' ) .'</button>
+    </form>';
+
+    return $form;
+  }

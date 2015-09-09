@@ -107,6 +107,18 @@
   padding-top: 20px;
 }
 
+.widget-follow-us {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  li {
+    display: inline-block;
+    a {
+      margin-right: 10px;
+    }
+  }
+}
+
 // STICKY FOOTER
 * {
   margin: 0;

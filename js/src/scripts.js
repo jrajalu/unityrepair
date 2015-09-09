@@ -36,6 +36,7 @@
     $('#front').flexslider({
       animation: "slide",
       animationLoop: false,
+      controlNav: false,
       itemWidth: 210,
       itemMargin: 5
     });
