@@ -103,7 +103,7 @@ add_action( 'widgets_init', 'unityrepair_widgets_init' );
       'name'            => __( 'Page Sidebar', 'unityrepair' ),
       'id'              => 'sidebar-1',
       'description'     => __( 'Appears when using the optional page', 'unityrepair' ),
-      'before_widget'   => '<aside>',
+      'before_widget'   => '<aside class="arrow-box">',
       'after_widget'    => '</aside>',
       'before_title'    => '<h3 class="widget-title">',
       'after_title'     => '</h3>',
