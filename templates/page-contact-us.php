@@ -3,7 +3,7 @@
  * @package unityrepair
  * @since 1.0
  * 
- * Template Name: Page with Thumbnail (Right)
+ * Template Name: Page with Maps
  */
 get_header(); ?>
 <div class="wrap column pad-top pad-bottom">
