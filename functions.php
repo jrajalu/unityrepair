@@ -143,3 +143,64 @@ add_filter( 'get_search_form', 'unityrepair_search_form' );
 
     return $form;
   }
+  
+// PROJECT FILE LIST
+  
+function unityrepair_project_slide( $file_list_meta_key, $img_size = 'full' ) {
+
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    ?>
+      <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
+        <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
+        <p class="flex-caption"><?php echo get_the_title( $attachment_id ); ?></p>
+      </li> 
+    <?php
+  }
+
+}
+
+function unityrepair_project_carousel( $file_list_meta_key, $img_size = 'full' ) {
+
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    ?>
+      <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
+        <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
+      </li> 
+    <?php
+  }
+}
+
+// SERVICE FILE LIST
+  
+function unityrepair_service_slide( $file_list_meta_key, $img_size = 'full' ) {
+
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    ?>
+      <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">
+        <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
+        <p class="flex-caption"><?php echo get_the_title( $attachment_id ); ?></p>
+      </li> 
+    <?php
+  }
+
+}
+
+function unityrepair_service_carousel( $file_list_meta_key, $img_size = 'full' ) {
+
+  $files = get_post_meta( get_the_ID(), $file_list_meta_key, 1 );
+
+  foreach ( (array) $files as $attachment_id => $attachment_url ) {
+    ?>
+      <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">
+        <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
+      </li> 
+    <?php
+  }
+  
+}

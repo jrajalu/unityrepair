@@ -51,17 +51,26 @@ add_action( 'cmb2_init', 'unityrepair_register_project_metabox' );
     ) );
 
     $cmb_project->add_field( array(
-      'name' => __( 'Image', 'unityrepair' ),
+      'name' => __( 'Main Image', 'unityrepair' ),
       'desc' => __( 'Upload an image or enter a URL.', 'unityrepair' ),
       'id'   => $prefix . 'project_image',
       'type' => 'file',
     ) );
     
     $cmb_project->add_field( array(
-      'name'    => __( 'Link', 'unityrepair' ),
-      'desc'    => __( 'Link for images', 'unityrepair' ),
-      'id'      => $prefix . 'project_link',
-      'type'    => 'text',
+        'name' => 'Project File List',
+        'desc' => '',
+        'id'   => $prefix . 'project_image_list',
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // Optional, override default text strings
+        'options' => array(
+            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'remove_image_text' => 'Replacement', // default: "Remove Image"
+            'file_text' => 'Replacement', // default: "File:"
+            'file_download_text' => 'Replacement', // default: "Download"
+            'remove_text' => 'Replacement', // default: "Remove"
+        ),
     ) );
     
   }
@@ -89,10 +98,19 @@ add_action( 'cmb2_init', 'unityrepair_register_service_metabox' );
     ) );
     
     $cmb_service->add_field( array(
-      'name'    => __( 'Link', 'unityrepair' ),
-      'desc'    => __( 'Link for images', 'unityrepair' ),
-      'id'      => $prefix . 'service_link',
-      'type'    => 'text',
+        'name' => 'Project File List',
+        'desc' => '',
+        'id'   => $prefix . 'service_image_list',
+        'type' => 'file_list',
+        // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+        // Optional, override default text strings
+        'options' => array(
+            'add_upload_files_text' => 'Replacement', // default: "Add or Upload Files"
+            'remove_image_text' => 'Replacement', // default: "Remove Image"
+            'file_text' => 'Replacement', // default: "File:"
+            'file_download_text' => 'Replacement', // default: "Download"
+            'remove_text' => 'Replacement', // default: "Remove"
+        ),
     ) );
     
   }
