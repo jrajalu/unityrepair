@@ -46,6 +46,14 @@
   padding: 30px 40px 30px 0;
 }
 
+.widget-page-list {
+  list-style-type: none;
+  li {
+    ul {
+      padding-left: 20px;
+    }
+  }
+}
 // widget arrow box
 
 .arrow-box {

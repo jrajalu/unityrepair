@@ -7,7 +7,10 @@ get_header(); ?>
 <div class="wrap column pad-top pad-bottom">
   <div id="primary" class="content-area col-8-12">
     <div id="content" class="site-content pad-right" role="main">
-      <h1><?php the_title(); ?></h1>
+      <?php while( have_posts() ) : the_post(); ?>
+        <h1><?php the_title(); ?></h1>
+        <?php the_content(); ?>
+      <?php endwhile; ?>
       <!-- slider -->
       <div id="slider" class="flexslider">
         <ul class="slides">
@@ -26,14 +29,16 @@ get_header(); ?>
       </div>
     </div>
   </div>
-  <div class="col-4-12 pad-top pad-left">
-    <?php 
-      $args = array(
-        'post_type' => 'project',
-        'title_li'  => __('Project')
-      );
-    wp_list_pages( $args ); 
-    ?> 
+  <div class="col-4-12 pad-left">
+    <ul class="widget-page-list">
+      <?php 
+        $args = array(
+          'post_type' => 'project',
+          'title_li'  => '<h3> '. __( 'Projects' ) .' </h3>'
+        );
+        wp_list_pages( $args ); 
+      ?>
+    </ul>
   </div>
 </div>
 <?php get_footer(); ?>
