@@ -4,7 +4,7 @@
  * @since 1.0
  */
 
-// NEWS
+// PROJECTS
 
 add_action( 'init', 'register_cpt_project' );
 
@@ -27,7 +27,7 @@ function register_cpt_project() {
 
   $args = array( 
     'labels' => $labels,
-    'hierarchical' => false,
+    'hierarchical' => true,
 
     'supports' => array( 'title', 'editor', 'thumbnail' ),
 
@@ -36,7 +36,6 @@ function register_cpt_project() {
     'show_in_menu' => true,
     'menu_position' => 5,
     'menu_icon' => 'dashicons-clipboard',
-
 
     'show_in_nav_menus' => true,
     'publicly_queryable' => true,
