@@ -1,7 +1,7 @@
 /*
 Theme Name: Unity Repair
 Theme URI: https://github.com/jrajalu/unityrepair
-Version: 1.0.13
+Version: 1.0.14
 Description: Unity Repair and Remedy Sdn Bhd
 Author: Jamaludin Rajalu
 */
@@ -784,6 +784,19 @@ footer .copyright {
   float: left;
   padding: 10px 30px 30px 0;
   height: 200px;
+}
+.project-holder a,
+.project-holder a:visited,
+.project-holder a:hover,
+.service-holder a,
+.service-holder a:visited,
+.service-holder a:hover {
+  color: #444;
+}
+
+.project-image,
+.service-image {
+  border: 1px solid #636363;
 }
 
 .project-image-title,
