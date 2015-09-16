@@ -16,7 +16,7 @@ get_header(); ?>
             <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
           </div>
           <div class="project-image-title">
-            <?php the_title(); ?>
+            <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
           </div>
         </div>
         <?php endwhile; ?>
