@@ -9,7 +9,7 @@
     <?php
       $args = array(
         'post_type'       => 'slide',
-        'post_per_page'   => 10,
+        'posts_per_page'   => 10,
         'order'           => 'ASC'
       );
 

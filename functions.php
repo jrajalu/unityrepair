@@ -66,6 +66,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_script( 'uikit-slideshow', get_template_directory_uri() . '/lib/uikit/js/components/slideshow.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-lightbox', get_template_directory_uri() . '/lib/uikit/js/components/lightbox.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-search', get_template_directory_uri() . '/lib/uikit/js/components/search.min.js', array(), '2.20.3', true );
+    wp_enqueue_script( 'uikit-tooltip', get_template_directory_uri() . '/lib/uikit/js/components/tooltip.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'fitvidsjs', get_template_directory_uri() . '/lib/fitvids/jquery.fitvids.js', array(), '1.1.0', true );
     wp_enqueue_script( 'flexslier', get_template_directory_uri() . '/lib/flexslider/jquery.flexslider-min.js', array(), '2.5.0', true );
     wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/scripts.min.js', array(), '6.7', true );
@@ -75,6 +76,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_style( 'uikit-slideshow', get_template_directory_uri() . '/lib/uikit/css/components/slideshow.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-slidenav', get_template_directory_uri() . '/lib/uikit/css/components/slidenav.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-search', get_template_directory_uri() . '/lib/uikit/css/components/search.almost-flat.min.css', false, '2.20.3' );
+    wp_enqueue_style( 'uikit-tooltip', get_template_directory_uri() . '/lib/uikit/css/components/tooltip.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/lib/flexslider/flexslider.css', false, '2.5.0' );
     wp_enqueue_style( 'style', get_stylesheet_uri(), false, '8.0' );
   }
@@ -210,3 +212,15 @@ function unityrepair_service_carousel( $file_list_meta_key, $img_size = 'full' )
   }
   
 }
+
+// LIGHTBOX IMAGES
+
+add_filter('the_content', 'unityrepair_content_lightbox');
+
+  function unityrepair_content_lightbox($content) {
+    global $post;
+    $pattern ="/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
+    $replacement = '<a$1href=$2$3.$4$5 data-uk-lightbox title="'.$post->post_title.'"$6>';
+    $content = preg_replace($pattern, $replacement, $content);
+    return $content;
+  }

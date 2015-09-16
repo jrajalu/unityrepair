@@ -181,3 +181,17 @@ footer {
 .flex-direction-nav a  {
   line-height: 40px;
 }
+
+// PROJECTS
+
+.project-holder,
+.service-holder {
+  width: 26%;
+  float: left;
+  padding: 10px 30px 30px 0;
+}
+
+.project-image-title,
+.service-image-title {
+  padding: 10px 0 10px 0;
+}
