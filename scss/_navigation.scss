@@ -217,6 +217,8 @@
   }
   #cssmenu > ul {
     display: none;
+    float: left; // adjust for mobile
+    width: 100%; // adjust width
   }
   #cssmenu > ul.open {
     display: block;
@@ -250,7 +252,7 @@
     padding: 18px 25px 18px 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: url('images/bg.png');
+    // background: url('images/bg.png');
     cursor: pointer;
   }
   #cssmenu ul ul,

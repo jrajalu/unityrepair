@@ -490,6 +490,8 @@ a img.aligncenter {
 
   #cssmenu > ul {
     display: none;
+    float: left;
+    width: 100%;
   }
 
   #cssmenu > ul.open {
@@ -530,7 +532,6 @@ a img.aligncenter {
     padding: 18px 25px 18px 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: url("images/bg.png");
     cursor: pointer;
   }
 
@@ -624,7 +625,7 @@ a img.aligncenter {
 
 .header-wrap {
   background: #636363;
-  height: 90px;
+  min-height: 90px;
   position: relative;
   z-index: 5;
 }
