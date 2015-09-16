@@ -10,15 +10,23 @@ get_header(); ?>
       <h1><?php _e( 'Projects', 'unityrepair' ); ?></h1>
       <!-- slider -->
       <div class="column">
-        <?php while( have_posts() ) : the_post(); ?>
-        <div class="project-holder">
-          <div class="project-image">
-            <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
+        <?php
+          $args = array(
+            'post_type'               => 'project',
+            'posts_per_archive_page'  => 12,
+          );
+
+          $query = new WP_Query( $args );
+
+          while( $query->have_posts() ) : $query->the_post(); ?>
+          <div class="project-holder">
+            <div class="project-image">
+              <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
+            </div>
+            <div class="project-image-title">
+              <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+            </div>
           </div>
-          <div class="project-image-title">
-            <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
-          </div>
-        </div>
         <?php endwhile; ?>
       </div>
     </div>
