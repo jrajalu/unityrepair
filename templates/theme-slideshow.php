@@ -4,7 +4,7 @@
  * @since 1.0
  */
 ?> 
-<div class="uk-slidenav-position" data-uk-slideshow="{animation:'slice-up-down', autoplay:true, autoplayInterval:6000}">
+<div class="uk-slidenav-position" data-uk-slideshow="{animation:'swipe', autoplay:true, autoplayInterval:6000}">
   <ul class="uk-slideshow">
     <?php
       $args = array(
