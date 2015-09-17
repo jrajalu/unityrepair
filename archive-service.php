@@ -10,7 +10,17 @@ get_header(); ?>
       <h1><?php _e( 'Services', 'unityrepair' ); ?></h1>
       <!-- slider -->
       <div class="column">
-        <?php while( have_posts() ) : the_post(); ?>
+        <?php
+          $args = array(
+            'post_type'               => 'service',
+            'posts_per_archive_page'  => -1,
+            'order'                   => 'ASC',
+            'orderby'                 => 'title'
+          );
+
+          $query = new WP_Query( $args );
+          
+        while( $query->have_posts() ) : $query->the_post(); ?>
         <div class="service-holder">
           <div class="service-image">
             <img src="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">

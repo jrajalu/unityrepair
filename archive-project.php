@@ -14,6 +14,8 @@ get_header(); ?>
           $args = array(
             'post_type'               => 'project',
             'posts_per_archive_page'  => -1,
+            'order'                   => 'ASC',
+            'orderby'                 => 'title'
           );
 
           $query = new WP_Query( $args );

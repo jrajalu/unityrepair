@@ -163,7 +163,6 @@ function unityrepair_project_slide( $file_list_meta_key, $img_size = 'full' ) {
     ?>
       <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_project_image',true); ?>">
         <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
-        <p class="flex-caption"><?php echo get_the_title( $attachment_id ); ?></p>
       </li> 
     <?php
   }
@@ -193,7 +192,6 @@ function unityrepair_service_slide( $file_list_meta_key, $img_size = 'full' ) {
     ?>
       <li data-thumb="<?php echo get_post_meta(get_the_ID(),'_unityrepair_service_image',true); ?>">
         <?php echo wp_get_attachment_image( $attachment_id, $img_size ); ?>
-        <p class="flex-caption"><?php echo get_the_title( $attachment_id ); ?></p>
       </li> 
     <?php
   }

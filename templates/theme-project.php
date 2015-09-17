@@ -1,12 +1,13 @@
 
-<h3 class="project-title"><?php _e( 'Project', 'unityrepair' ); ?></h3>
+<h3 class="project-title"><?php _e( 'Projects', 'unityrepair' ); ?></h3>
 <div id="front" class="flexslider">
   <ul class="slides">
     <?php
       $args = array(
         'post_type'       => 'project',
         'post_per_page'   => 10,
-        'order'           => 'ASC'
+        'order'           => 'ASC',
+        'orderby'         => 'title'
       );
 
       $loop = new WP_Query( $args );
