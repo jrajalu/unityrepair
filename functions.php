@@ -64,6 +64,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_script( 'uikit', get_template_directory_uri() . '/lib/uikit/js/uikit.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-slider', get_template_directory_uri() . '/lib/uikit/js/components/slider.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-slideshow', get_template_directory_uri() . '/lib/uikit/js/components/slideshow.min.js', array(), '2.20.3', true );
+    wp_enqueue_script( 'uikit-slideshow-fx', get_template_directory_uri() . '/lib/uikit/js/components/slideshow-fx.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-lightbox', get_template_directory_uri() . '/lib/uikit/js/components/lightbox.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-search', get_template_directory_uri() . '/lib/uikit/js/components/search.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'uikit-tooltip', get_template_directory_uri() . '/lib/uikit/js/components/tooltip.min.js', array(), '2.20.3', true );

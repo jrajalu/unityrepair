@@ -13,7 +13,7 @@ get_header(); ?>
         <?php
           $args = array(
             'post_type'               => 'project',
-            'posts_per_archive_page'  => 12,
+            'posts_per_archive_page'  => -1,
           );
 
           $query = new WP_Query( $args );
