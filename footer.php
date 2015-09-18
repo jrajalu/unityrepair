@@ -1,4 +1,7 @@
-</div>
+  <div class="footer-banner">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/malaysia.svg" style="width:100%;">
+  </div>
+</div><!-- .page-wrap -->
 <footer>
   <div class="wrap column">
     <div class="col-12-12">

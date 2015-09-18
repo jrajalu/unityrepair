@@ -206,3 +206,23 @@ footer {
 .service-image-title {
   padding: 10px 0 10px 0;
 }
+
+// FOOTER BANNER
+
+.page-wrap {
+  position: relative;
+}
+
+.footer-banner {
+  position: absolute;
+  width: 100%;
+  right: auto;
+  left: auto;
+  bottom: 90px;
+  z-index: -1;
+}
+
+.flexslider {
+  background: transparent;
+  border: 4px solid transparent;
+}
