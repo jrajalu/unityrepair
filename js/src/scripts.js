@@ -40,7 +40,15 @@
       itemWidth: 210,
       itemMargin: 5
     });
-  
+    
+    // fakeLoader
+    
+    $("#fakeLoader").fakeLoader({
+      timeToHide:1200,
+      bgColor:"#636363",
+      spinner:"spinner1"
+    });
+    
   });
 
 } )( jQuery );

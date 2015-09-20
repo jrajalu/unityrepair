@@ -39,6 +39,18 @@ module.exports = function(grunt) {
         },
         {
           expand: true,
+          cwd: 'bower_components/fakeLoader',
+          src: 'fakeLoader.css',
+          dest: 'lib/fakeloader'
+        },
+                {
+          expand: true,
+          cwd: 'bower_components/fakeLoader',
+          src: 'fakeLoader.min.js',
+          dest: 'lib/fakeloader'
+        },
+        {
+          expand: true,
           cwd: 'bower_components/uikit',
           src: '**',
           dest: 'lib/uikit'
@@ -194,10 +206,10 @@ module.exports = function(grunt) {
 
   // execute grunt task
   
-  grunt.registerTask('build', ['copy', 'sass', 'uglify', 'usebanner']);
+  grunt.registerTask('start', ['copy', 'sass', 'uglify', 'usebanner']);
 
-  grunt.registerTask('dev', ['watch']);
+  grunt.registerTask('run', ['watch']);
 
-  grunt.registerTask('final', ['clean']);
+  grunt.registerTask('finish', ['clean']);
 
 };

@@ -69,6 +69,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_script( 'uikit-tooltip', get_template_directory_uri() . '/lib/uikit/js/components/tooltip.min.js', array(), '2.20.3', true );
     wp_enqueue_script( 'fitvidsjs', get_template_directory_uri() . '/lib/fitvids/jquery.fitvids.js', array(), '1.1.0', true );
     wp_enqueue_script( 'flexslier', get_template_directory_uri() . '/lib/flexslider/jquery.flexslider-min.js', array(), '2.5.0', true );
+    wp_enqueue_script( 'fakeloader', get_template_directory_uri() . '/lib/fakeloader/fakeLoader.min.js', array(), '1.1.0', true );
     wp_enqueue_script( 'theme', get_template_directory_uri() . '/js/scripts.min.js', array(), '6.7', true );
     // stylesheet
     wp_enqueue_style( 'uikit', get_template_directory_uri() . '/lib/uikit/css/uikit.almost-flat.min.css', false, '2.20.3' );
@@ -77,6 +78,7 @@ add_action( 'wp_enqueue_scripts', 'unityrepair_scripts' );
     wp_enqueue_style( 'uikit-slidenav', get_template_directory_uri() . '/lib/uikit/css/components/slidenav.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-search', get_template_directory_uri() . '/lib/uikit/css/components/search.almost-flat.min.css', false, '2.20.3' );
     wp_enqueue_style( 'uikit-tooltip', get_template_directory_uri() . '/lib/uikit/css/components/tooltip.almost-flat.min.css', false, '2.20.3' );
+    wp_enqueue_style( 'fakeloader', get_template_directory_uri() . '/lib/fakeloader/fakeLoader.css', false, '1.1.0' );
     wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/lib/flexslider/flexslider.css', false, '2.5.0' );
     wp_enqueue_style( 'style', get_stylesheet_uri(), false, '8.0' );
   }

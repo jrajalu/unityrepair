@@ -15,6 +15,7 @@
 <?php get_template_part( 'inc/theme', 'css' ); ?>
 </head>
 <body <?php body_class(); ?>>
+<div id="fakeLoader"></div>
 <div class="page-wrap">
   <div class="header-wrap">
     <header class="wrap column">
