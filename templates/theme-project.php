@@ -5,7 +5,7 @@
     <?php
       $args = array(
         'post_type'       => 'project',
-        'post_per_page'   => -1,
+        'post_per_page'   => 50,
         'order'           => 'ASC',
         'orderby'         => 'title'
       );
