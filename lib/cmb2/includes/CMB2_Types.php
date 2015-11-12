@@ -716,26 +716,12 @@ class CMB2_Types {
 		return $this->multicheck( 'multicheck_inline' );
 	}
 
-	public function checkbox( $args = array(), $is_checked = null ) {
-		$defaults = array(
-			'type'  => 'checkbox',
-			'class' => 'cmb2-option cmb2-list',
-			'value' => 'on',
-			'desc'  => '',
-		);
-
+	public function checkbox() {
 		$meta_value = $this->field->escaped_value();
-
-		$is_checked = is_null( $is_checked )
-			? ! empty( $meta_value )
-			: $is_checked;
-
-		if ( $is_checked ) {
-			$defaults['checked'] = 'checked';
+		$args = array( 'type' => 'checkbox', 'class' => 'cmb2-option cmb2-list', 'value' => 'on', 'desc' => '' );
+		if ( ! empty( $meta_value ) ) {
+			$args['checked'] = 'checked';
 		}
-
-		$args = $this->parse_args( $args, 'checkbox', $defaults );
-
 		return sprintf( '%s <label for="%s">%s</label>', $this->input( $args ), $this->_id(), $this->_desc() );
 	}
 
@@ -927,12 +913,12 @@ class CMB2_Types {
 
 		$this->_desc( true, true );
 
-		$cached_id = $this->_id();
+		// If we're looking at a file in a group, we need to get the non-prefixed id
+		$cached_id = $this->field->group ? $this->field->args( '_id' ) : $this->_id();
 
 		// Reset field args for attachment ID
 		$args = $this->field->args();
-		// If we're looking at a file in a group, we need to get the non-prefixed id
-		$args['id'] = ( $this->field->group ? $this->field->args( '_id' ) : $cached_id ) . '_id';
+		$args['id'] = $cached_id . '_id';
 		unset( $args['_id'], $args['_name'] );
 
 		// And get new field object

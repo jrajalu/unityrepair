@@ -23,49 +23,28 @@ class CMB2_Utils {
 	 * Utility method that attempts to get an attachment's ID by it's url
 	 * @since  1.0.0
 	 * @param  string  $img_url Attachment url
-	 * @return int|false            Attachment ID or false
+	 * @return mixed            Attachment ID or false
 	 */
 	public function image_id_from_url( $img_url ) {
-		$attachment_id = 0;
-		$dir = wp_upload_dir();
+		global $wpdb;
 
-		// Is URL in uploads directory?
-		if ( false === strpos( $img_url, $dir['baseurl'] . '/' ) ) {
-			return false;
+		$img_url = esc_url_raw( $img_url );
+		// Get just the file name
+		if ( false !== strpos( $img_url, '/' ) ) {
+			$explode = explode( '/', $img_url );
+			$img_url = end( $explode );
 		}
 
-		$file = basename( $img_url );
+		// And search for a fuzzy match of the file name
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid LIKE '%%%s%%' LIMIT 1;", $img_url ) );
 
-		$query_args = array(
-			'post_type'   => 'attachment',
-			'post_status' => 'inherit',
-			'fields'      => 'ids',
-			'meta_query'  => array(
-				array(
-					'value'   => $file,
-					'compare' => 'LIKE',
-					'key'     => '_wp_attachment_metadata',
-				),
-			)
-		);
-
-		$query = new WP_Query( $query_args );
-
-		if ( $query->have_posts() ) {
-
-			foreach ( $query->posts as $post_id ) {
-				$meta = wp_get_attachment_metadata( $post_id );
-				$original_file       = basename( $meta['file'] );
-				$cropped_image_files = isset( $meta['sizes'] ) ? wp_list_pluck( $meta['sizes'], 'file' ) : array();
-				if ( $original_file === $file || in_array( $file, $cropped_image_files ) ) {
-					$attachment_id = $post_id;
-					break;
-				}
-			}
-
+		// If we found an attachement ID, return it
+		if ( ! empty( $attachment ) && is_array( $attachment ) ) {
+			return $attachment[0];
 		}
 
-		return 0 === $attachment_id ? false : $attachment_id;
+		// No luck
+		return false;
 	}
 
 	/**

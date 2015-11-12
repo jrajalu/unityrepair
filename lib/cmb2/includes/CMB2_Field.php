@@ -128,9 +128,9 @@ class CMB2_Field {
 	/**
 	 * Get a field argument
 	 * @since  1.1.0
-	 * @param  string $key  Argument to check
-	 * @param  string $_key Sub argument to check
-	 * @return mixed        Argument value or false if non-existent
+	 * @param  string $key Argument to check
+	 * @param  string $key Sub argument to check
+	 * @return mixed       Argument value or false if non-existent
 	 */
 	public function args( $key = '', $_key = '' ) {
 		$arg = $this->_data( 'args', $key );
@@ -175,9 +175,8 @@ class CMB2_Field {
 	/**
 	 * Retrieves metadata/option data
 	 * @since  1.0.1
-	 * @param  string $field_id Meta key/Option array key
-	 * @param  array  $args     Override arguments
-	 * @return mixed            Meta/Option value
+	 * @param  string  $field_id Meta key/Option array key
+	 * @return mixed             Meta/Option value
 	 */
 	public function get_data( $field_id = '', $args = array() ) {
 		if ( $field_id ) {
@@ -233,9 +232,9 @@ class CMB2_Field {
 				: get_metadata( $a['type'], $a['id'], $a['field_id'], ( $a['single'] || $a['repeat'] ) );
 		}
 
-		if ( $this->group ) {
 
-			$data = is_array( $data ) && isset( $data[ $this->group->index ][ $this->args( '_id' ) ] )
+		if ( $this->group && $data ) {
+			$data = isset( $data[ $this->group->index ][ $this->args( '_id' ) ] )
 				? $data[ $this->group->index ][ $this->args( '_id' ) ]
 				: false;
 		}
@@ -252,7 +251,7 @@ class CMB2_Field {
 	public function update_data( $new_value, $single = true ) {
 		$a = $this->data_args( array( 'single' => $single ) );
 
-		$a['value'] = $a['repeat'] ? array_values( $new_value ) : $new_value;
+		$a[ 'value' ] = $a['repeat'] ? array_values( $new_value ) : $new_value;
 
 		/**
 		 * Filter whether to override saving of meta value.
@@ -297,21 +296,21 @@ class CMB2_Field {
 
 		// Options page handling (or temp data store)
 		if ( 'options-page' === $a['type'] || empty( $a['id'] ) ) {
-			return cmb2_options( $a['id'] )->update( $a['field_id'], $a['value'], false, $a['single'] );
+			return cmb2_options( $a['id'] )->update( $a['field_id'], $a[ 'value' ], false, $a['single'] );
 		}
 
 		// Add metadata if not single
 		if ( ! $a['single'] ) {
-			return add_metadata( $a['type'], $a['id'], $a['field_id'], $a['value'], false );
+			return add_metadata( $a['type'], $a['id'], $a['field_id'], $a[ 'value' ], false );
 		}
 
 		// Delete meta if we have an empty array
-		if ( is_array( $a['value'] ) && empty( $a['value'] ) ) {
+		if ( is_array( $a[ 'value' ] ) && empty( $a[ 'value' ] ) ) {
 			return delete_metadata( $a['type'], $a['id'], $a['field_id'], $this->value );
 		}
 
 		// Update metadata
-		return update_metadata( $a['type'], $a['id'], $a['field_id'], $a['value'] );
+		return update_metadata( $a['type'], $a['id'], $a['field_id'], $a[ 'value' ] );
 	}
 
 	/**
@@ -377,7 +376,7 @@ class CMB2_Field {
 	}
 
 	/**
-	 * Data variables for get/set data methods
+	 * data variables for get/set data methods
 	 * @since  1.1.0
 	 * @param  array $args Override arguments
 	 * @return array       Updated arguments
@@ -463,6 +462,7 @@ class CMB2_Field {
 
 			$updated = $count ? $count : false;
 
+
 		} elseif ( ! cmb2_utils()->isempty( $new_value ) && $new_value !== $old ) {
 			$updated = $this->update_data( $new_value );
 		} elseif ( cmb2_utils()->isempty( $new_value ) ) {
@@ -487,7 +487,7 @@ class CMB2_Field {
 		// Check if metabox is requesting NO validation
 		$cb = false !== $field_args[ $cb ] && 'false' !== $field_args[ $cb ] ? $field_args[ $cb ] : false;
 
-		// If requesting NO validation, return false
+		// If requestion NO validation, return false
 		if ( ! $cb ) {
 			return false;
 		}
@@ -519,40 +519,25 @@ class CMB2_Field {
 	 */
 	public function repeatable_exception( $type ) {
 		// These types cannot be escaped
-		$internal_fields = array(
-			// Use file_list instead
-			'file'                => 1,
-			'radio'               => 1,
-			'title'               => 1,
+		return in_array( $type, array(
+			'file', // Use file_list
+			'radio',
+			'title',
 			// @todo Ajax load wp_editor: http://wordpress.stackexchange.com/questions/51776/how-to-load-wp-editor-through-ajax-jquery
-			'wysiwyg'             => 1,
-			'checkbox'            => 1,
-			'radio_inline'        => 1,
-			'taxonomy_radio'      => 1,
-			'taxonomy_select'     => 1,
-			'taxonomy_multicheck' => 1,
-		);
-
-		/**
-		 * Filter field types that are non-repeatable.
-		 *
-		 * Note that this does *not* allow overriding the default non-repeatable types.
-		 *
-		 * @since 2.1.1
-		 *
-		 * @param array $fields Array of fields designated as non-repeatable. Note that the field names are *keys*,
-		 *                      and not values. The value can be anything, because it is meaningless. Example:
-		 *                      array( 'my_custom_field' => 1 )
-		 */
-		$all_fields = array_merge( apply_filters( 'cmb2_non_repeatable_fields', array() ), $internal_fields );
-		return isset( $all_fields[ $type ] );
+			'wysiwyg',
+			'checkbox',
+			'radio_inline',
+			'taxonomy_radio',
+			'taxonomy_select',
+			'taxonomy_multicheck',
+		) );
 	}
 
 	/**
 	 * Escape the value before output. Defaults to 'esc_attr()'
 	 * @since  1.0.1
-	 * @param  callable $func       Escaping function (if not esc_attr())
 	 * @param  mixed    $meta_value Meta value
+	 * @param  callable $func       Escaping function (if not esc_attr())
 	 * @return mixed                Final value
 	 */
 	public function escaped_value( $func = 'esc_attr', $meta_value = '' ) {
@@ -621,18 +606,17 @@ class CMB2_Field {
 	 * @return string Timezone string
 	 */
 	public function field_timezone() {
-		$value = '';
 
 		// Is timezone arg set?
 		if ( $this->args( 'timezone' ) ) {
-			$value = $this->args( 'timezone' );
+			return $this->args( 'timezone' );
 		}
 		// Is there another meta key with a timezone stored as its value we should use?
 		else if ( $this->args( 'timezone_meta_key' ) ) {
-			$value = $this->get_data( $this->args( 'timezone_meta_key' ) );
+			return $this->get_data( $this->args( 'timezone_meta_key' ) );
 		}
 
-		return $value;
+		return '';
 	}
 
 	/**
@@ -649,9 +633,8 @@ class CMB2_Field {
 	/**
 	 * Return a formatted timestamp for a field
 	 * @since  2.0.0
-	 * @param  string $format     Either date_format or time_format
-	 * @param  string $meta_value Optional meta value to check
-	 * @return string             Formatted date
+	 * @param  string $format Either date_format or time_format
+	 * @return string         Formatted date
 	 */
 	public function get_timestamp_format( $format = 'date_format', $meta_value = 0 ) {
 		$meta_value = $meta_value ? $meta_value : $this->escaped_value();
@@ -667,22 +650,10 @@ class CMB2_Field {
 	}
 
 	/**
-	 * Get field render callback and Render the field row
+	 * Render a field row
 	 * @since 1.0.0
 	 */
 	public function render_field() {
-		// Check if the field has a registered render_field callback
-		if ( $cb = $this->maybe_callback( 'render_row_cb' ) ) {
-			// Ok, callback is good, let's run it.
-			return call_user_func( $cb, $this->args(), $this );
-		}
-	}
-
-	/**
-	 * Default field render callback
-	 * @since 2.1.1
-	 */
-	public function render_field_callback() {
 
 		// If field is requesting to not be shown on the front-end
 		if ( ! is_admin() && ! $this->args( 'on_front' ) ) {
@@ -698,15 +669,17 @@ class CMB2_Field {
 
 		printf( "<div class=\"cmb-row %s\">\n", $this->row_classes() );
 
-		if ( ! $this->args( 'show_names' ) ) {
-			echo "\n\t<div class=\"cmb-td\">\n";
+		if ( 'title' == $this->type() || ! $this->args( 'show_names' ) ) {
+			echo "\t<div class=\"cmb-td\">\n";
 
-			$this->peform_param_callback( 'label_cb' );
-
+			if ( ! $this->args( 'show_names' ) ) {
+				$style = 'title' == $this->type() ? '' : ' style="display:none;"';
+				printf( "\n<label%s for=\"%s\">%s</label>\n", $style, $this->id(), $this->args( 'name' ) );
+			}
 		} else {
 
-			if ( $this->get_param_callback_result( 'label_cb', false ) ) {
-				echo '<div class="cmb-th">', $this->peform_param_callback( 'label_cb' ), '</div>';
+			if ( $this->args( 'name' ) ) {
+				printf( '<div class="cmb-th"><label for="%1$s">%2$s</label></div>', $this->id(), $this->args( 'name' ) );
 			}
 
 			echo "\n\t<div class=\"cmb-td\">\n";
@@ -714,8 +687,8 @@ class CMB2_Field {
 
 		$this->peform_param_callback( 'before' );
 
-		$field_type = new CMB2_Types( $this );
-		$field_type->render();
+		$this_type = new CMB2_Types( $this );
+		$this_type->render();
 
 		$this->peform_param_callback( 'after' );
 
@@ -725,22 +698,6 @@ class CMB2_Field {
 
 		// For chaining
 		return $this;
-	}
-
-	/**
-	 * The default label_cb callback (if not a title field)
-	 *
-	 * @since  2.1.1
-	 * @return string Label html markup
-	 */
-	public function label() {
-		if ( ! $this->args( 'name' ) ) {
-			return '';
-		}
-
-		$style = ! $this->args( 'show_names' ) ? ' style="display:none;"' : '';
-
-		return sprintf( "\n" . '<label%1$s for="%2$s">%3$s</label>' . "\n", $style, $this->id(), $this->args( 'name' ) );
 	}
 
 	/**
@@ -935,8 +892,6 @@ class CMB2_Field {
 			'time_format'       => 'h:i A',
 			'description'       => isset( $args['desc'] ) ? $args['desc'] : '',
 			'preview_size'      => 'file' == $args['type'] ? array( 350, 350 ) : array( 50, 50 ),
-			'render_row_cb'     => array( $this, 'render_field_callback' ),
-			'label_cb'          => 'title' != $args['type'] ? array( $this, 'label' ) : '',
 		) );
 
 		// Allow a filter override of the default value

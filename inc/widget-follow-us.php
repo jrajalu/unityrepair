@@ -35,6 +35,12 @@ class Follow_Us_Widget extends WP_Widget {
         <li><a href="https://www.facebook.com/pages/Unity-Repair-and-Remedy-Sdn-Bhd/552456664830022" class="uk-icon-button uk-icon-facebook"></a></li>
         <li><a href="https://www.twitter.com" class="uk-icon-button uk-icon-twitter"></a></li>
         <li><a href="https://www.instagram.com" class="uk-icon-button uk-icon-instagram"></a></li>
+        <li>
+          <!-- BEGIN: Powered by Supercounters.com -->
+          <center><script type="text/javascript" src="http://widget.supercounters.com/hit.js"></script><script type="text/javascript">sc_hit(1137673,0,5);</script><br><noscript><a href="http://www.supercounters.com">Tumblr Hit Counter</a></noscript>
+          </center>
+          <!-- END: Powered by Supercounters.com -->
+        </li>
       </ul>
       
       <?php
